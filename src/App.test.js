@@ -9,4 +9,5 @@ it("renders without crashing", () => {
   console.log();
   console.log();
   console.log();
+  console.log();
 });
