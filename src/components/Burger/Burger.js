@@ -4,24 +4,24 @@ import classes from "./Burger.module.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredients";
 
 const burger = props => {
-  let transformedIngedients = Object.keys(props.ingedients)
-    .map(ingredKey => {
-      return [...Array(props.ingedients[ingredKey])].map((_, index) => {
-        return <BurgerIngredient key={ingredKey + index} type={ingredKey} />;
+  let transformedIngredients = Object.keys(props.ingredients)
+    .map(igKey => {
+      return [...Array(props.ingredients[igKey])].map((_, index) => {
+        return <BurgerIngredient key={igKey + index} type={igKey} />;
       });
     })
     .reduce((arr, curr) => {
       return arr.concat(curr);
     }, []);
 
-  if (transformedIngedients.length === 0) {
-    transformedIngedients = <p>Please start adding ingredients!</p>;
+  if (transformedIngredients.length === 0) {
+    transformedIngredients = <p>Please start adding ingredients!</p>;
   }
 
   return (
     <div className={classes.Burger}>
       <BurgerIngredient type="bread-top" />
-      {transformedIngedients}
+      {transformedIngredients}
       <BurgerIngredient type="bread-bottom" />
     </div>
   );
